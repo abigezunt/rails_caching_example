@@ -1,4 +1,13 @@
-<h2>Recent Products</h2>
-<%= render @products %>
-<h2>Recent Reviews</h2>
-<%= render @reviews %>
+<% cache @products do %>
+  <div id="products">		
+    <h2>Recent Products</h2>
+		<%= render @products %>
+	</div>
+<% end %>
+
+<% cache @reviews do %>
+  <div id="reviews">
+	  <h2>Recent Reviews</h2>
+	  <%= render @reviews %>
+  </div>
+<% end %>
