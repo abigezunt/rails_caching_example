@@ -1,6 +1,7 @@
 FullCachingExample::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  redis_uri = ENV['REDISCLOUD_URL']
+  config.cache_store = :redis_store, "#{redis_uri}/1"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
