@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    @product = Product.find(params[:product_id])
     @review = Review.new
   end
 
@@ -24,11 +25,13 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
+    @product = Product.find(params[:product_id])
     @review = Review.new(review_params)
+    @review.product_id = params[:product_id]
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @review }
       else
         format.html { render action: 'new' }
