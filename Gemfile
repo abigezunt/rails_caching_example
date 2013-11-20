@@ -19,6 +19,7 @@ gem 'foreman'
 gem 'puma'
 gem 'pry-rails'
 gem 'dotenv-rails'
+gem 'twitter', '5.0.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
